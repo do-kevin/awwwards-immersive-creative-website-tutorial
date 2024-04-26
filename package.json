@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "rm -rf _site && eleventy --serve",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "dev:2": "rm -rf _site && eleventy --serve"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
@@ -31,6 +30,7 @@
   "homepage": "https://github.com/do-kevin/awwwards-immersive-creative-website-tutorial#readme",
   "dependencies": {
     "@11ty/eleventy-plugin-vite": "^4.0.0",
+    "eleventy-sass": "^2.2.4",
     "pug": "^3.0.2"
   }
 }

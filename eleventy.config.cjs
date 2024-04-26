@@ -1,11 +1,13 @@
 const eleventyVitePlugin = require('@11ty/eleventy-plugin-vite');
+const eleventySass = require('eleventy-sass');
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.setTemplateFormats('pug');
-
   eleventyConfig.setServerOptions({
     port: 5173,
   });
+
+  eleventyConfig.setTemplateFormats('pug');
+  eleventyConfig.addPlugin(eleventySass);
 
   eleventyConfig.addPlugin(eleventyVitePlugin, {
     viteOptions: {
@@ -20,13 +22,12 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy('public');
-  eleventyConfig.addPassthroughCopy('src/styles');
   eleventyConfig.addPassthroughCopy('src/app');
   eleventyConfig.setServerPassthroughCopyBehavior('copy');
 
   return {
     dir: {
-      input: 'src/views',
+      input: 'src',
       output: '_site',
     },
     passthroughFileCopy: true,
