@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:2": "eleventy --serve"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
     "sass": "^1.75.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
@@ -23,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/do-kevin/awwwards-immersive-creative-website-tutorial/issues"
   },
-  "homepage": "https://github.com/do-kevin/awwwards-immersive-creative-website-tutorial#readme"
+  "homepage": "https://github.com/do-kevin/awwwards-immersive-creative-website-tutorial#readme",
+  "dependencies": {
+    "@11ty/eleventy-plugin-vite": "^4.0.0"
+  }
 }
