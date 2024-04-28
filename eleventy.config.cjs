@@ -15,6 +15,7 @@ module.exports = function (eleventyConfig) {
       publicDir: 'public',
       plugins: [],
       build: {
+        target: 'es6',
         outDir: '_site',
         emptyOutDir: true,
       },
@@ -24,12 +25,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('public');
   eleventyConfig.addPassthroughCopy('src/app');
   eleventyConfig.setServerPassthroughCopyBehavior('copy');
-
+  // eleventyConfig.addWatchTarget('src/app/main.js');
   return {
     dir: {
-      input: 'src',
+      input: 'src/views',
       output: '_site',
+      includes: '_includes',
+      data: '_data',
     },
     passthroughFileCopy: true,
+    htmlTemplateEngine: 'pug',
   };
 };

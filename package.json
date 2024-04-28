@@ -30,7 +30,11 @@
   "homepage": "https://github.com/do-kevin/awwwards-immersive-creative-website-tutorial#readme",
   "dependencies": {
     "@11ty/eleventy-plugin-vite": "^4.0.0",
+    "@prismicio/client": "^7.4.1",
+    "@prismicio/helpers": "^2.3.9",
+    "dotenv": "^16.4.5",
     "eleventy-sass": "^2.2.4",
+    "node-fetch": "^3.3.2",
     "pug": "^3.0.2"
   }
 }
