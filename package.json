@@ -1,40 +1,47 @@
 {
   "name": "my-app",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.0.1",
+  "description": "",
+  "browserslist": [
+    "> 0.5%",
+    "not IE 11"
+  ],
   "scripts": {
-    "dev": "rm -rf _site && eleventy --serve",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@prettier/plugin-pug": "^3.0.0",
-    "@types/node": "^20.12.7",
-    "prettier": "^3.2.5",
-    "sass": "^1.75.0",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "dev": "npx @11ty/eleventy --serve",
+    "watch": "npx @11ty/eleventy --watch",
+    "serve": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/do-kevin/awwwards-immersive-creative-website-tutorial.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/do-kevin/awwwards-immersive-creative-website-tutorial/issues"
   },
   "homepage": "https://github.com/do-kevin/awwwards-immersive-creative-website-tutorial#readme",
-  "dependencies": {
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-plugin-vite": "^4.0.0",
+    "@prettier/plugin-pug": "^3.0.0",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.54.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "postcss-nesting": "^12.0.1",
+    "prettier": "^3.2.5",
+    "rollup-plugin-critical": "^1.0.13",
+    "sass": "^1.69.5",
+    "vite": "^5.1.5"
+  },
+  "dependencies": {
     "@prismicio/client": "^7.4.1",
-    "@prismicio/helpers": "^2.3.9",
     "dotenv": "^16.4.5",
-    "eleventy-sass": "^2.2.4",
-    "node-fetch": "^3.3.2",
-    "pug": "^3.0.2"
+    "eleventy-sass": "^2.2.4"
   }
 }
