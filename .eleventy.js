@@ -68,7 +68,7 @@ module.exports = function (eleventyConfig) {
     htmlTemplateEngine: 'pug',
     passthroughFileCopy: true,
     dir: {
-      input: 'src',
+      input: 'src/views',
       output: '_site',
       includes: '_includes',
       layouts: 'layouts',
