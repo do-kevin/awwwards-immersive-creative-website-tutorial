@@ -1,8 +1,9 @@
 extends layouts/base
 
 block variables
-	- var template = "home"
+    - var template = "home";
 
 block content
-	h1 Home
-	a(href="/about") See about
+    h1.collections__title Home
+    each media in prismic.home.data.gallery
+        img(src=media.image.url)

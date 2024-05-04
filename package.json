@@ -41,7 +41,10 @@
   },
   "dependencies": {
     "@prismicio/client": "^7.4.1",
+    "@prismicio/helpers": "^2.3.9",
+    "axios": "1.4.0",
     "dotenv": "^16.4.5",
-    "eleventy-sass": "^2.2.4"
+    "eleventy-sass": "^2.2.4",
+    "include-media": "^2.0.0"
   }
 }

@@ -5,10 +5,10 @@
  * @type {import('prettier').Options}
  */
 module.exports = {
-  plugins: ["@prettier/plugin-pug"],
+    plugins: ['@prettier/plugin-pug'],
 
-  printWidth: 120,
-  singleQuote: true,
+    printWidth: 120,
+    singleQuote: true,
 
-  pugSingleQuote: false,
+    pugSingleQuote: false,
 };

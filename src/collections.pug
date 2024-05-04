@@ -1,0 +1,12 @@
+extends layouts/base
+
+block variables
+    - var template = "collections";
+
+block content
+    h1.collections__title Collections
+
+    each collection in prismic.collection
+        h2=`${collection.data.title}`
+        each product in collection.data.list
+            img(src=product.product.data.image.url)

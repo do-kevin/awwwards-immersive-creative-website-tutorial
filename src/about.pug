@@ -1,8 +1,11 @@
 extends layouts/base
 
 block variables
-	- var template = "about"
+    - var template = "about"
 
 block content
-	h1.h1 About
-	a(href="/") Go home
+    h1.collections__title About 
+
+block modal
+    .modal
+        .modal__wrapper

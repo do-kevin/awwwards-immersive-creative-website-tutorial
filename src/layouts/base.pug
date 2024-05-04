@@ -1,13 +1,21 @@
 doctype html
 html(lang="en")
-	head
-		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		title Document
-		link(href="/assets/css/main.css", rel="stylesheet")
-	body
-		block variables
-		main#main
-			div(data-template=template)
-				block content
-		script(type="module", src="/assets/js/main.js")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(href="/assets/styles/index.css", rel="stylesheet")
+    body
+        block variables
+        include ../partials/navigation.pug
+        include ../partials/preloader.pug
+        main#main
+            #content.content(data-template=template)
+                block content
+
+            .modals
+                block modal
+    script.
+        window.ASSETS = !{JSON.stringify(prismic.assets).replace(/<\//g, "<\\/")}
+
+    script(type="module", src="/assets/js/main.js")
