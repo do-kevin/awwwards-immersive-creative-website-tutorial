@@ -1,7 +1,16 @@
-extends layouts/base
-
+---
+pagination:
+    data: prismic.products
+    size: 1
+    alias: product
+permalink: "| detail/#{ product.uid }/index.html"
+layout: base
+---
 block variables
-    - var template = "detail"
+    - var template = "detail";
 
 block content
-    h1.collections__title Detail 
+    div= `${JSON.stringify(product.slug)}`
+    .detail 
+        .detail__wrapper 
+            figure.test

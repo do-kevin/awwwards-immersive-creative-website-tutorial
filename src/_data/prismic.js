@@ -117,8 +117,6 @@ async function fetchPrismicData() {
         fetchProducts(),
     ]);
 
-    console.log('home: ', home);
-
     const assets = gatherAssets(home, about, collection);
 
     const data = {
