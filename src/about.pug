@@ -12,7 +12,6 @@ block content
                         figure.about__gallery__media
                             img.about__gallery__media__image(src=media.image.url, alt=media.image.alt)
 
-            div= `${JSON.stringify(prismic.about.data.body)}`
             each section in prismic.about.data.body 
                 if section.slice_type === "title"
                     h2.about__title= section.primary.text
