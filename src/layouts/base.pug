@@ -3,7 +3,8 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
+        title= prismic.meta.data.title
+        meta(name="description", content=prismic.meta.data.description)
         link(href="/assets/styles/index.css", rel="stylesheet")
     body
         block variables

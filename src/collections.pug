@@ -4,9 +4,23 @@ block variables
     - var template = "collections";
 
 block content
-    h1.collections__title Collections
+    .collections
+        .collections__wrapper
+            .collections__title
+                each _collection, index in prismic.collection
+                    .collections__title__label= `${prismic.home.data.collection} ${utils.localNumbers(index)}`
+                    .collections__titles__title= _collection.data.title
 
-    each collection in prismic.collection
-        h2=`${collection.data.title}`
-        each product in collection.data.list
-            img(src=product.product.data.image.url)
+            .collections__gallery
+                .collections__gallery__wrapper
+                    each _collection in prismic.collection
+                        each product in _collection.data.list
+                            a.collections__gallery__link(href=utils.Link(product.product))
+                                figure.collections__gallery__media
+                                    img(src=product.product.data.image.url, alt=product.product.data.image.alt)
+
+            .collections__content
+                each _collection in prismic.collection
+                    article.collections__article
+                        h2.collections__article__title= `${_collection.data.title} ${prismic.home.data.collection}`
+                        p.collections__article__description= _collection.data.description

@@ -1,12 +1,9 @@
 nav.navigation
     .navigation__wrapper
-        a.navigation__link(href="/")
-            | Floema
-
+        a.navigation__link(href="/")= prismic.meta.data.title
             svg.navitation__link__icon
 
         ul.navigation__list
-            li.navigation_list__item
-                a.navigation__list__link(href="/about") About
-            li.navigation_list__item
-                a.navigation__list__link(href="/collections") Collections
+            each item in prismic.navigation.data.list
+                li.navigation_list__item
+                    a.navigation__list__link(href=utils.Link(item.link))= item.link.slug

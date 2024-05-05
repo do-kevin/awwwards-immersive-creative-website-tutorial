@@ -4,6 +4,15 @@ block variables
     - var template = "home";
 
 block content
-    h1.collections__title Home
-    each media in prismic.home.data.gallery
-        img(src=media.image.url)
+    .home
+        .home__wrapper
+            .home__titles
+                each _collection, index in prismic.collection
+                    .home__titles__label= `${prismic.home.data.collection} ${utils.localNumbers(index)}`
+                    .home__titles__title= _collection.data.title
+
+            .home__gallery
+                each media in prismic.home.data.gallery
+                    figure.home__media
+                        img.home__gallery__media__image(src=media.image.url, alt=media.image.alt)
+                a(href=utils.Link(prismic.home.data.collections))= prismic.home.data.button
