@@ -1,9 +1,9 @@
 nav.navigation
     .navigation__wrapper
         a.navigation__link(href="/")= prismic.meta.data.title
-            svg.navitation__link__icon
+            svg.navigation__link__icon
 
         ul.navigation__list
             each item in prismic.navigation.data.list
-                li.navigation_list__item
+                li.navigation__list__item
                     a.navigation__list__link(href=utils.Link(item.link))= item.link.slug
