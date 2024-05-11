@@ -1,7 +1,13 @@
 @import '../utilities/variables.scss';
 @import '../shared/description.scss';
 @import '../utilities/mixins.scss';
-@import '../utilities/repsonsive.scss';
+@import '../utilities/responsive.scss';
+
+html {
+    // divide the window size by the design file/frame's size and multiply by 10
+    // So our wireframe is 1920px, and we do 100vw / 1920 * 10
+    font-size: calc(100vw / 1920 * 10);
+}
 
 body {
     @extend %description-16;

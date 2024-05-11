@@ -1,10 +1,21 @@
+@import '../../utilities/mixins.scss';
+
 .detail {
+    @extend %cover;
+    @extend %center;
 }
 .detail__wrapper {
+    align-items: center;
+    display: flex;
 }
 .detail__media {
+    width: 55.4rem;
+    position: relative;
+    height: 78.2rem;
 }
 .detail__media__image {
+    @extend %cover;
+    object-fit: cover;
 }
 
 .detail__information {

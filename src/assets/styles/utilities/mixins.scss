@@ -7,6 +7,13 @@
     width: 100%;
 }
 
+%center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 // useful for avoiding images to flicker to rescale the height
 @mixin ratio($height, $width) {
     font-size: 0;

@@ -2,7 +2,7 @@
 @import './utilities/functions.scss';
 @import './utilities/mixins.scss';
 @import './utilities/vendors.scss';
-@import './utilities/repsonsive.scss';
+@import './utilities/responsive.scss';
 
 @import './shared/description.scss';
 @import './shared/titles.scss';
@@ -10,6 +10,8 @@
 @import './base/fonts.scss';
 @import './base/reset.scss';
 @import './base/base.scss';
+
+@import './components/preloader.scss';
 
 @import './pages/about/about.scss';
 @import './pages/about/content.scss';
