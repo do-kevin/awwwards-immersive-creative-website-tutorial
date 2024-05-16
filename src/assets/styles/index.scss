@@ -1,3 +1,5 @@
+@import './base/reset.scss';
+
 @import './utilities/variables.scss';
 @import './utilities/functions.scss';
 @import './utilities/mixins.scss';
@@ -8,7 +10,6 @@
 @import './shared/titles.scss';
 
 @import './base/fonts.scss';
-@import './base/reset.scss';
 @import './base/base.scss';
 
 @import './components/preloader.scss';
@@ -21,3 +22,7 @@
 @import './pages/collections/collections.scss';
 @import './pages/detail/detail.scss';
 @import './pages/home/home.scss';
+
+#d-none {
+    display: none;
+}

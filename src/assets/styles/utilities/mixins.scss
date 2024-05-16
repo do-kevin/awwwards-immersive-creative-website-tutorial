@@ -1,17 +1,16 @@
 %cover {
     height: 100%;
     left: 0;
-    object-fit: cover;
     position: absolute;
     top: 0;
     width: 100%;
+    // object-fit: cover;
 }
 
 %center {
     align-items: center;
     display: flex;
     justify-content: center;
-    text-align: center;
 }
 
 // useful for avoiding images to flicker to rescale the height
