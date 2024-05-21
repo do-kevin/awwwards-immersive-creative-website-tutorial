@@ -6,9 +6,9 @@ block variables
 block content
     .collections
         .collections__wrapper
-            .collections__title
+            .collections__titles
                 each _collection, index in prismic.collection
-                    .collections__title__label= `${prismic.home.data.collection} ${utils.localNumbers(index)}`
+                    .collections__titles__label!= `${prismic.home.data.collection}<br />${utils.localNumbers(index)}`
                     .collections__titles__title= _collection.data.title
 
             .collections__gallery
@@ -23,7 +23,7 @@ block content
                                     )
 
             .collections__content
-                each _collection in prismic.collection
-                    article.collections__article
+                each _collection, index in prismic.collection
+                    article.collections__article(class=`${index === 0 ? "collections__article--active" : ""}`)
                         h2.collections__article__title= `${_collection.data.title} ${prismic.home.data.collection}`
                         p.collections__article__description= _collection.data.description
