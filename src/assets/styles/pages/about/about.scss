@@ -1,7 +1,18 @@
+@import '../../utilities/variables.scss';
+@import '../../shared/titles.scss';
+
 .about {
+    background: $color-cadet-blue;
+    color: $color-bright-gray;
 }
+
 .about__wrapper {
 }
 
 .about__title {
+    @extend %title-100;
+
+    margin: auto;
+    max-width: 124rem;
+    text-align: center;
 }

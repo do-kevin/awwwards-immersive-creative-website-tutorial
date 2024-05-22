@@ -1,14 +1,74 @@
+@import '../../shared/titles.scss';
+@import '../../shared/description.scss';
+@import '../../utilities/mixins.scss';
+
 .about__highlight {
+    margin: 20rem 0;
+    position: relative;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 .about__highlight__wrapper {
+    height: 104rem;
+    margin: auto;
+    position: relative;
+    width: 144rem;
+
+    .about__highlight:nth-child(4) & {
+        width: 104rem;
+    }
 }
 .about__highlight__label {
+    @extend %description-12;
+
+    left: 50%;
+    letter-spacing: 0.1rem;
+    position: absolute;
+    top: 9rem;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    width: 9.6rem;
 }
 
 .about__highlight__title {
+    @extend %title-200;
+
+    padding-bottom: 2rem;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(-90deg);
 }
 
 .about__highlight__media {
+    height: 76rem;
+    position: absolute;
+    width: 54rem;
+
+    .about__highlight:nth-child(4) & {
+        height: 52.8rem;
+        width: 36rem;
+    }
+
+    &:first-child {
+        left: 0;
+        top: 0;
+    }
+
+    &:last-child {
+        bottom: 0;
+        right: 0;
+    }
 }
 .about__highlight__media__image {
+    @extend %cover;
+
+    object-fit: cover;
 }

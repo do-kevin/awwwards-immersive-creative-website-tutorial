@@ -1,17 +1,38 @@
+@import '../../utilities/mixins.scss';
+@import '../../shared/description.scss';
+@import '../../shared/titles.scss';
+@import '../../utilities/variables.scss';
+@import '../../shared/vertical-titles.scss';
+
 .home {
+    @extend %cover;
+    @extend %center;
+    background: $color-contessa;
+    color: $color-quarter-spanish-white;
+    text-align: center;
 }
 .home__wrapper {
 }
 .home__titles {
+    @extend %vertical-titles;
 }
 .home__titles__label {
+    @extend %vertical-titles__label;
 }
 .home__titles__title {
+    @extend %vertical-titles__title;
 }
 
 .home__gallery {
+    @extend %cover;
+}
+
+// check .home__gallery__media Kevin
+.home__gallery__media {
+    position: absolute;
 }
 .home__media {
+    position: absolute;
 }
 .home__gallery__media__image {
 }
