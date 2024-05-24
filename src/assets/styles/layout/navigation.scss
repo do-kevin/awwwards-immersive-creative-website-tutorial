@@ -1,10 +1,26 @@
+@import '../utilities/mixins.scss';
+@import '../shared/description.scss';
+@import '../shared/titles.scss';
+@import '../utilities/variables.scss';
+@import '../shared/vertical-titles.scss';
+
 .navigation {
+    @extend %cover;
+
+    color: $color-quarter-spanish-white;
+    font-size: 0;
+    z-index: map-get($z-indexes, navigation);
 }
-.navigation__wrapper {
-}
+
 .navigation__link {
+    height: 2rem;
+    left: 4rem;
+    position: absolute;
+    top: 4rem;
+    width: 12.8rem;
 }
 .navigation__link__icon {
+    display: block;
 }
 
 .navigation__list {
@@ -12,6 +28,10 @@
 .navigation.data.list {
 }
 .navigation__list__item {
+    position: absolute;
+    right: 4rem;
+    top: 4rem;
 }
 .navigation__list__link {
+    @extend %title-20;
 }

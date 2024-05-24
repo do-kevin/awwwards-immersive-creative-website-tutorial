@@ -1,6 +1,7 @@
 @import '../utilities/mixins.scss';
 @import '../shared/titles.scss';
 @import '../shared/description.scss';
+@import '../utilities/variables.scss';
 
 .preloader {
     @extend %cover;
@@ -8,6 +9,9 @@
     background: $color-contessa;
     color: $color-quarter-spanish-white;
     text-align: center;
+    display: none !important;
+
+    z-index: map-get($z-indexes, preloader);
 }
 
 .preloader__text {

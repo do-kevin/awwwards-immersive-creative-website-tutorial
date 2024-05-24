@@ -13,6 +13,7 @@ html {
     // divide the window size by the design file/frame's size and multiply by 10
     // So our wireframe is 1920px, and we do 100vw / 1920 * 10
     font-size: calc(100vw / 1920 * 10);
+    line-height: 1;
 }
 
 body {
@@ -32,4 +33,12 @@ a {
 
 img {
     vertical-align: middle;
+}
+
+button {
+    background: none;
+    border: none;
+    color: inherit;
+    outline: none;
+    cursor: pointer;
 }
