@@ -3,12 +3,15 @@
 @import '../shared/titles.scss';
 @import '../utilities/variables.scss';
 @import '../shared/vertical-titles.scss';
+@import '../../../../node_modules/include-media/dist/include-media.scss';
 
 .navigation {
     @extend %cover;
 
     color: $color-quarter-spanish-white;
+    pointer-events: none;
     font-size: 0;
+    position: fixed;
     z-index: map-get($z-indexes, navigation);
 }
 
@@ -17,7 +20,15 @@
     left: 4rem;
     position: absolute;
     top: 4rem;
+    pointer-events: auto;
     width: 12.8rem;
+
+    @include media('<phone') {
+        height: 4.3rem;
+        left: 5rem;
+        top: 5rem;
+        width: 27.9rem;
+    }
 }
 .navigation__link__icon {
     display: block;
@@ -28,10 +39,18 @@
 .navigation.data.list {
 }
 .navigation__list__item {
+    pointer-events: auto;
     position: absolute;
     right: 4rem;
+    text-transform: capitalize;
     top: 4rem;
+
+    .navigation__link {
+        display: none;
+    }
 }
 .navigation__list__link {
     @extend %title-20;
+
+    display: block;
 }

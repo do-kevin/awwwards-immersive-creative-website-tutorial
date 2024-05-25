@@ -12,11 +12,10 @@ const Link = (doc) => {
     }
 
     if (doc.type === 'collections') {
-        console.log(doc);
         return '/collections';
     }
 
-    return '/';
+    // return '/';
 };
 
 module.exports = {

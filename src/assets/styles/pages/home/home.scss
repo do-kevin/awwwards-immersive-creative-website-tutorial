@@ -4,11 +4,15 @@
 @import '../../utilities/variables.scss';
 @import '../../shared/vertical-titles.scss';
 
+@import '../../../../../node_modules/include-media/dist/include-media.scss';
+
 .home {
     @extend %cover;
     @extend %center;
     background: $color-contessa;
     color: $color-quarter-spanish-white;
+
+    overflow: hidden;
     text-align: center;
 
     &:before,
@@ -45,6 +49,8 @@
 
 .home__gallery {
     @extend %cover;
+
+    visibility: hidden;
 }
 
 .home__gallery__media {
@@ -69,6 +75,12 @@
     transform: translateX(-50%);
     width: 28.8rem;
     z-index: 2;
+
+    @include media('<phone') {
+        bottom: 7.5rem;
+        width: 55rem;
+        height: 13.7rem;
+    }
 }
 
 .home__link__icon {

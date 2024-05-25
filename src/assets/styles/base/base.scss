@@ -2,6 +2,15 @@
 @import '../shared/description.scss';
 @import '../utilities/mixins.scss';
 @import '../utilities/responsive.scss';
+@import '../../../../node_modules/include-media/dist/include-media.scss';
+
+$viewport-width: 100vw;
+$design-frame-width-desktop: 1920;
+$design-frame-width-mobile: 750;
+$design-base-font-size: 10;
+
+$base-font-size-desktop: calc($viewport-width / $design-frame-width-desktop * $design-base-font-size);
+$base-font-size-mobile: calc($viewport-width / $design-frame-width-mobile * $design-base-font-size);
 
 *,
 *:after,
@@ -12,17 +21,17 @@
 html {
     // divide the window size by the design file/frame's size and multiply by 10
     // So our wireframe is 1920px, and we do 100vw / 1920 * 10
-    font-size: calc(100vw / 1920 * 10);
+    font-size: $base-font-size-desktop;
     line-height: 1;
+
+    @include media('<phone') {
+        font-size: $base-font-size-mobile;
+    }
 }
 
 body {
     @extend %description-16;
     font-family: $font-suisse-bp;
-
-    @include media('<=phone') {
-        font-size: 100px;
-    }
 }
 
 a {

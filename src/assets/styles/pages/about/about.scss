@@ -1,5 +1,6 @@
 @import '../../utilities/variables.scss';
 @import '../../shared/titles.scss';
+@import '../../../../../node_modules/include-media/dist/include-media.scss';
 
 .about {
     background: $color-cadet-blue;
@@ -15,4 +16,8 @@
     margin: auto;
     max-width: 124rem;
     text-align: center;
+
+    @include media('<phone') {
+        max-width: 67.7rem;
+    }
 }

@@ -2,6 +2,7 @@
 @import '../shared/description.scss';
 @import './titles.scss';
 @import '../utilities/variables.scss';
+@import '../../../../node_modules/include-media/dist/include-media.scss';
 
 %vertical-titles {
     align-items: center;
@@ -19,6 +20,10 @@
     text-align: center;
     text-transform: uppercase;
     transform: rotate(90deg);
+
+    @include media('<phone') {
+        font-size: 1.2rem;
+    }
 }
 %vertical-titles__title {
     @extend %title-200;

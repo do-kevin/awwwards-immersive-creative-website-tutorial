@@ -2,6 +2,7 @@
 @import '../shared/titles.scss';
 @import '../shared/description.scss';
 @import '../utilities/variables.scss';
+@import '../../../../node_modules/include-media/dist/include-media.scss';
 
 .preloader {
     @extend %cover;
@@ -25,4 +26,8 @@
     bottom: 7.3rem;
     left: 50%;
     transform: translateX(-50%);
+
+    @include media('<phone') {
+        font-size: 2.4rem;
+    }
 }

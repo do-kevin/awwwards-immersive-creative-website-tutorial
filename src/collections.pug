@@ -27,3 +27,9 @@ block content
                     article.collections__article(class=`${index === 0 ? "collections__article--active" : ""}`)
                         h2.collections__article__title= `${_collection.data.title} ${prismic.home.data.collection}`
                         p.collections__article__description= _collection.data.description
+
+            .collections__mobile
+                each _collection, index in prismic.collection
+                    .collections__mobile__item
+                        .collections__mobile__item__label!= `${prismic.home.data.collection}<br />${utils.localNumbers(index)}`
+                        .collections__mobile__item__title= _collection.data.title

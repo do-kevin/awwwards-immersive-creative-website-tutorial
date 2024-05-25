@@ -4,6 +4,8 @@
 @import '../../utilities/variables.scss';
 @import '../../shared/vertical-titles.scss';
 
+@import '../../../../../node_modules/include-media/dist/include-media.scss';
+
 .collections {
     @extend %cover;
 
@@ -19,6 +21,10 @@
 
 .collections__titles {
     @extend %vertical-titles;
+
+    @include media('<phone') {
+        display: none;
+    }
 }
 .collections__titles__label {
     @extend %vertical-titles__label;
@@ -53,6 +59,10 @@
 }
 .collections__content {
     @extend %cover;
+
+    @include media('<phone') {
+        display: none;
+    }
 }
 .collections__article {
     left: 8rem;
@@ -70,4 +80,26 @@
 .collections__article__description {
     @extend %description-16;
     max-width: 44rem;
+}
+
+.collections__mobile {
+    display: flex;
+    position: absolute;
+    bottom: 5rem;
+}
+
+.collections__mobile__item {
+    padding-left: 5rem;
+    width: 100vw;
+}
+
+.collections__mobile__item__label {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.collections__mobile__item__title {
+    font-family: $font-george-x;
+    font-size: 12rem;
 }
