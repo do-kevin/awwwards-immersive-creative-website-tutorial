@@ -1,5 +1,20 @@
-export default class Home {
+import Page from '../../classes/Pages';
+
+export default class Home extends Page {
     constructor() {
-        console.log('Home');
+        super({
+            id: 'home',
+            element: '.home',
+            elements: {
+                navigation: document.querySelector('.navigation'),
+                link: '.home__link',
+            },
+        });
+    }
+
+    create() {
+        super.create();
+
+        this.elements.link.addEventListener('click', (_) => console.log('Clicked me'));
     }
 }
