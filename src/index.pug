@@ -14,7 +14,7 @@ block content
             .home__gallery
                 each media in prismic.home.data.gallery
                     figure.home__gallery__media
-                        img.home__gallery__media__image(src=media.image.url, alt=media.image.alt)
+                        img.home__gallery__media__image(data-src=media.image.url, alt=media.image.alt)
                 a(href=utils.Link(prismic.home.data.collections))= prismic.home.data.button
 
             a.home__link(href=prismic.collections.uid)
