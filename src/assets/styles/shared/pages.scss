@@ -1,0 +1,9 @@
+@import '../utilities/mixins.scss';
+
+%page {
+    @extend %cover;
+}
+
+%page__wrapper {
+    color: inherit;
+}

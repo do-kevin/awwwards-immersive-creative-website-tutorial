@@ -1,5 +1,6 @@
 @import '../../utilities/mixins.scss';
 @import '../../shared/description.scss';
+@import '../../shared/pages.scss';
 @import '../../shared/titles.scss';
 @import '../../utilities/variables.scss';
 @import '../../shared/vertical-titles.scss';
@@ -7,8 +8,8 @@
 @import '../../../../../node_modules/include-media/dist/include-media.scss';
 
 .home {
-    @extend %cover;
     @extend %center;
+    @extend %page;
     background: $color-contessa;
     color: $color-quarter-spanish-white;
 

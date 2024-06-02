@@ -1,5 +1,6 @@
 @import '../../utilities/mixins.scss';
 @import '../../shared/description.scss';
+@import '../../shared/pages.scss';
 @import '../../shared/titles.scss';
 @import '../../utilities/variables.scss';
 @import '../../shared/vertical-titles.scss';
@@ -7,7 +8,7 @@
 @import '../../../../../node_modules/include-media/dist/include-media.scss';
 
 .collections {
-    @extend %cover;
+    @extend %page;
 
     background: $color-quicksand;
     color: $color-quarter-spanish-white;

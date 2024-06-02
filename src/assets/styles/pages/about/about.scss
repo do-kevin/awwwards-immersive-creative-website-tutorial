@@ -1,8 +1,11 @@
 @import '../../utilities/variables.scss';
+@import '../../shared/pages.scss';
 @import '../../shared/titles.scss';
 @import '../../../../../node_modules/include-media/dist/include-media.scss';
 
 .about {
+    @extend %page;
+
     background: $color-cadet-blue;
     color: $color-bright-gray;
     opacity: 0;
