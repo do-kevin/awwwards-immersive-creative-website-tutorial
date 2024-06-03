@@ -30,12 +30,7 @@ export default class Component extends EventEmitter {
                     this.elements[key] = document.querySelector(entry);
                 }
             }
-            console.log(this.elements[key], entry);
         });
-
-        console.log(this.elements);
-
-        console.log('Create', this.id, this.element);
     }
 
     addEventListeners() {
