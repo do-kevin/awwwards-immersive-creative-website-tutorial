@@ -1,6 +1,8 @@
 import each from 'lodash/each';
 
 export function split({ element, expression = ' ', append = true }) {
+    console.log(element);
+
     const words = splitText(element.innerHTML.toString().trim(), expression);
 
     let innerHTML = '';
