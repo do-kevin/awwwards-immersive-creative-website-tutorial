@@ -3,7 +3,7 @@ import Animation from '../classes/Animation';
 import { split, calculate } from '../utils/text';
 import each from 'lodash/each';
 
-export default class Title extends Animation {
+export default class Label extends Animation {
     constructor({ element, elements }) {
         super({
             element,
@@ -52,5 +52,7 @@ export default class Title extends Animation {
 
     onResize() {
         this.elementsLines = calculate(this.elementLinesSpans);
+
+        console.log(this.elementsLines);
     }
 }

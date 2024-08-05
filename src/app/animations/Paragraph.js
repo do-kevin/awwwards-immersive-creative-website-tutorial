@@ -3,24 +3,24 @@ import Animation from '../classes/Animation';
 import { split, calculate } from '../utils/text';
 import each from 'lodash/each';
 
-export default class Title extends Animation {
+export default class Paragraph extends Animation {
     constructor({ element, elements }) {
         super({
             element,
             elements,
         });
 
-        split({
+        this.elementLinesSpans = split({
             element: this.element,
             append: true,
         });
 
-        split({
-            element: this.element,
-            append: true,
+        // Kevin's temp code. Set data-animation on child p tags, but this doesn't seem to account for first textContent word
+        this.elementLinesSpans.forEach((span) => {
+            if (span.parentElement.tagName === 'P' && !span.parentElement.hasAttribute('data-animation')) {
+                span.parentElement.setAttribute('data-animation', 'paragraph');
+            }
         });
-
-        this.elementLinesSpans = this.element.querySelectorAll('span span');
     }
 
     animateIn() {
@@ -33,12 +33,16 @@ export default class Title extends Animation {
         each(this.elementsLines, (line, index) => {
             this.timelineIn.fromTo(
                 line,
-                { y: '100%' },
                 {
+                    autoAlpha: 0,
+                    y: '100%',
+                },
+                {
+                    autoAlpha: 1,
                     delay: index * 0.2,
                     duration: 1.5,
-                    y: '0%',
                     ease: 'expo.out',
+                    y: '0%',
                 },
                 0,
             );
