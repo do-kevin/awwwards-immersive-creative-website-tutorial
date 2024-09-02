@@ -50,6 +50,7 @@
     "include-media": "^2.0.0",
     "lodash": "^4.17.21",
     "normalize-wheel": "^1.0.1",
-    "prefix": "^1.0.0"
+    "prefix": "^1.0.0",
+    "ua-parser-js": "^1.0.38"
   }
 }
