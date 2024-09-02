@@ -8,6 +8,8 @@ import Paragraph from '../animations/Paragraph';
 import Label from '../animations/Label';
 import Highlight from '../animations/Highlight';
 
+import AsyncLoad from '../classes/AsyncLoad';
+
 import { ColorsManager } from '../classes/Colors';
 
 export default class Page {
@@ -19,6 +21,7 @@ export default class Page {
             animationsLabels: '[data-animation="label"]',
             animationsParagraphs: '[data-animation="paragraph"]',
             animationsTitles: '[data-animation="title"]',
+            preloaders: '[data-src]',
         };
         this.id = id;
         this.transformPrefix = Prefix('transform');
@@ -52,6 +55,7 @@ export default class Page {
         });
 
         this.createAnimations();
+        this.createPreloader();
     }
 
     createAnimations() {
@@ -96,6 +100,13 @@ export default class Page {
         console.log('test: ', this.animations);
     }
 
+    createPreloader() {
+        this.preloaders = map(this.elements.preloaders, (element) => {
+            return new AsyncLoad({ element });
+        });
+    }
+
+    // Animations
     show() {
         return new Promise((resolve) => {
             ColorsManager.change({
@@ -124,7 +135,7 @@ export default class Page {
 
     hide() {
         return new Promise((resove) => {
-            this.removeEventListeners();
+            this.destroy();
 
             this.animationOut = GSAP.timeline();
 
@@ -135,6 +146,7 @@ export default class Page {
         });
     }
 
+    // events
     onMouseWheel(event) {
         const { pixelY } = NormalizeWheel(event);
 
@@ -149,6 +161,7 @@ export default class Page {
         each(this.animations, (animation) => animation.onResize());
     }
 
+    // loops
     update() {
         this.scroll.target = GSAP.utils.clamp(0, this.scroll.limit, this.scroll.target);
 
@@ -163,11 +176,17 @@ export default class Page {
         }
     }
 
+    // Listeners
     addEventListeners() {
         window.addEventListener('wheel', this.onMouseWheelEvent);
     }
 
     removeEventListeners() {
         window.removeEventListener('wheel', this.onMouseWheelEvent);
+    }
+
+    // Destroy
+    destroy() {
+        this.removeEventListeners();
     }
 }
