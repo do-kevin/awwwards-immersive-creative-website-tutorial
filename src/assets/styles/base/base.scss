@@ -21,6 +21,9 @@ $base-font-size-mobile: calc($viewport-width / $design-frame-width-mobile * $des
 html {
     @extend %cover;
 
+    background: $color-contessa;
+    color: $color-quarter-spanish-white;
+
     // divide the window size by the design file/frame's size and multiply by 10
     // So our wireframe is 1920px, and we do 100vw / 1920 * 10
     font-size: $base-font-size-desktop;

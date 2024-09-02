@@ -6,9 +6,12 @@
 .about {
     @extend %page;
 
-    background: $color-cadet-blue;
-    color: $color-bright-gray;
     opacity: 0;
+
+    // &--active {
+    //     background: $color-cadet-blue;
+    //     color: $color-bright-gray;
+    // }
 }
 
 .about__wrapper {
