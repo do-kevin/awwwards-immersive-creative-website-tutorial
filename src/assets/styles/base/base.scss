@@ -19,10 +19,17 @@ $base-font-size-mobile: calc($viewport-width / $design-frame-width-mobile * $des
 }
 
 html {
+    @extend %cover;
+
+    background: $color-contessa;
+    color: $color-quarter-spanish-white;
+
     // divide the window size by the design file/frame's size and multiply by 10
     // So our wireframe is 1920px, and we do 100vw / 1920 * 10
     font-size: $base-font-size-desktop;
     line-height: 1;
+    overflow: hidden;
+    position: fixed;
 
     @include media('<phone') {
         font-size: $base-font-size-mobile;
@@ -30,8 +37,11 @@ html {
 }
 
 body {
+    @extend %cover;
     @extend %description-16;
+
     font-family: $font-suisse-bp;
+    position: fixed;
 }
 
 a {
@@ -41,7 +51,13 @@ a {
 }
 
 img {
+    opacity: 0;
+    transition: opacity 0.4s ease;
     vertical-align: middle;
+
+    &.loaded {
+        opacity: 1;
+    }
 }
 
 button {
@@ -50,4 +66,18 @@ button {
     color: inherit;
     outline: none;
     cursor: pointer;
+}
+
+.content {
+    @extend %cover;
+}
+
+[data-animation='label'],
+[data-animation='paragraph'],
+[data-animation='title'] {
+    span {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: top;
+    }
 }

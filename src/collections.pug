@@ -4,7 +4,7 @@ block variables
     - var template = "collections";
 
 block content
-    .collections
+    .collections(data-background="#bc978c", data-color="#f9f1e7")
         .collections__wrapper
             .collections__titles
                 each _collection, index in prismic.collection
@@ -18,7 +18,7 @@ block content
                             a.collections__gallery__link(href=utils.Link(product.product))
                                 figure.collections__gallery__media
                                     img.collections__gallery__media__image(
-                                        src=product.product.data.image.url,
+                                        data-src=product.product.data.image.url,
                                         alt=product.product.data.image.alt
                                     )
 

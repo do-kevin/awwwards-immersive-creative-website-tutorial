@@ -6,7 +6,7 @@ html(lang="en")
         title= prismic.meta.data.title
         meta(name="description", content=prismic.meta.data.description)
         link(href="/assets/styles/index.css", rel="stylesheet")
-    body
+    body#app
         block variables
         include ../partials/navigation.pug
         include ../partials/preloader.pug
@@ -19,4 +19,6 @@ html(lang="en")
     script.
         window.ASSETS = !{JSON.stringify(prismic.assets).replace(/<\//g, "<\\/")}
 
+    script(src="https://cdn.jsdelivr.net/npm/ua-parser-js/dist/ua-parser.min.js")
     script(type="module", src="/assets/js/main.js")
+    script(type="module", src="/app/index.js")

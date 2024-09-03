@@ -20,9 +20,27 @@ dependencies:
   eleventy-sass:
     specifier: ^2.2.4
     version: 2.2.4(@11ty/eleventy@2.0.1)
+  events:
+    specifier: ^3.3.0
+    version: 3.3.0
+  gsap:
+    specifier: ^3.12.5
+    version: 3.12.5
   include-media:
     specifier: ^2.0.0
     version: 2.0.0
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
+  normalize-wheel:
+    specifier: ^1.0.1
+    version: 1.0.1
+  prefix:
+    specifier: ^1.0.0
+    version: 1.0.0
+  ua-parser-js:
+    specifier: ^1.0.38
+    version: 1.0.38
 
 devDependencies:
   '@11ty/eleventy':
@@ -2582,6 +2600,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /events@3.3.0:
+    resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
+    engines: {node: '>=0.8.x'}
+    dev: false
+
   /extend-shallow@2.0.1:
     resolution: {integrity: sha512-zCnTtlxNoAiDc3gqY2aYAWFx7XWWiasuF2K8Me5WbN8otHKTUKBwjPtNpRs/rbUZm7KxWAaNj7P1a/p52GbVug==}
     engines: {node: '>=0.10.0'}
@@ -2940,6 +2963,10 @@ packages:
       lodash: 4.17.21
       minimist: 1.2.8
     dev: true
+
+  /gsap@3.12.5:
+    resolution: {integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==}
+    dev: false
 
   /hamljs@0.6.2:
     resolution: {integrity: sha512-/chXRp4WpL47I+HX1vCCdSbEXAljEG2FBMmgO7Am0bYsqgnEjreeWzUdX1onXqwZtcfgxbCg5WtEYYvuZ5muBg==}
@@ -3623,7 +3650,6 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /lowercase-keys@2.0.0:
     resolution: {integrity: sha512-tqNXrS78oMOE73NMxK4EMLQsQowWf8jKooH9g7xPavRT706R6bkQJ6DY2Te7QukaZsulxa30wQ7bk0pm4XiHmA==}
@@ -3958,6 +3984,10 @@ packages:
     resolution: {integrity: sha512-IO9QvjUMWxPQQhs60oOu10CRkWCiZzSUkzbXGGV9pviYl1fXYcvkzQ5jV9z8Y6un8ARoVRl4EtC6v6jNqbaJ/w==}
     engines: {node: '>=14.16'}
     dev: true
+
+  /normalize-wheel@1.0.1:
+    resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==}
+    dev: false
 
   /nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
@@ -4612,6 +4642,10 @@ packages:
     dependencies:
       posthtml-parser: 0.11.0
       posthtml-render: 3.0.0
+
+  /prefix@1.0.0:
+    resolution: {integrity: sha512-KtGt8TV4nQkYgO6wJ5phkBGAECZW5cs5vQhqnz1LlxGGd8y4LwpW3Bq5pofULjdiMXACDCxisDUhwtFXb7vHfQ==}
+    dev: false
 
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -5552,6 +5586,10 @@ packages:
   /typedarray@0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: true
+
+  /ua-parser-js@1.0.38:
+    resolution: {integrity: sha512-Aq5ppTOfvrCMgAPneW1HfWj66Xi7XL+/mIy996R1/CLS/rcyJQm6QZdsKrUeivDFQ+Oc9Wyuwor8Ze8peEoUoQ==}
+    dev: false
 
   /uc.micro@1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}

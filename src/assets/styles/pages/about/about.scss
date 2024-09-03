@@ -1,10 +1,17 @@
 @import '../../utilities/variables.scss';
+@import '../../shared/pages.scss';
 @import '../../shared/titles.scss';
 @import '../../../../../node_modules/include-media/dist/include-media.scss';
 
 .about {
-    background: $color-cadet-blue;
-    color: $color-bright-gray;
+    @extend %page;
+
+    opacity: 0;
+
+    // &--active {
+    //     background: $color-cadet-blue;
+    //     color: $color-bright-gray;
+    // }
 }
 
 .about__wrapper {
@@ -12,9 +19,8 @@
 
 .about__title {
     @extend %title-100;
-
     margin: auto;
-    max-width: 124rem;
+    max-width: 126rem;
     text-align: center;
 
     @include media('<phone') {

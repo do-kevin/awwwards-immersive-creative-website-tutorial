@@ -1,15 +1,16 @@
 @import '../../utilities/mixins.scss';
 @import '../../utilities/variables.scss';
+@import '../../shared/pages.scss';
 @import '../../shared/description.scss';
 @import '../../shared/titles.scss';
 @import '../../../../../node_modules/include-media/dist/include-media.scss';
 
 .detail {
-    @extend %cover;
     @extend %center;
+    @extend %page;
 
-    background: $color-quicksand;
-    color: $color-quarter-spanish-white;
+    // background: $color-quicksand;
+    // color: $color-quarter-spanish-white;
 
     @include media('<phone') {
         height: auto !important;

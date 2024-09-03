@@ -4,7 +4,7 @@ block variables
     - var template = "home";
 
 block content
-    .home
+    .home(data-background="#bc978c", data-color="#37384c")
         .home__wrapper
             .home__titles
                 each _collection, index in prismic.collection
@@ -14,7 +14,7 @@ block content
             .home__gallery
                 each media in prismic.home.data.gallery
                     figure.home__gallery__media
-                        img.home__gallery__media__image(src=media.image.url, alt=media.image.alt)
+                        img.home__gallery__media__image(data-src=media.image.url, alt=media.image.alt)
                 a(href=utils.Link(prismic.home.data.collections))= prismic.home.data.button
 
             a.home__link(href=prismic.collections.uid)
@@ -29,6 +29,11 @@ block content
                     )
                     path(
                         stroke="currentColor",
+                        fill="none",
+                        d="M144,0.5c79.25,0,143.5,13.21,143.5,29.5S223.25,59.5,144,59.5S0.5,46.29,0.5,30S64.75,0.5,144,0.5z"
+                    )
+                    path.home__link__icon__path(
+                        stroke="#ffc400",
                         fill="none",
                         d="M144,0.5c79.25,0,143.5,13.21,143.5,29.5S223.25,59.5,144,59.5S0.5,46.29,0.5,30S64.75,0.5,144,0.5z"
                     )
