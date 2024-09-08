@@ -4,10 +4,11 @@ import vertex from '../../shaders/plane-vertex.glsl?raw';
 import fragment from '../../shaders/plane-fragment.glsl?raw';
 
 export default class {
-    constructor({ element, geometry, gl, scene }) {
+    constructor({ element, geometry, gl, scene, index }) {
         this.element = element;
         this.geometry = geometry;
         this.gl = gl;
+        this.index = index;
         this.scene = scene;
 
         this.createTexture();
@@ -48,5 +49,7 @@ export default class {
         });
 
         this.mesh.setParent(this.scene);
+
+        this.mesh.position.x += this.index * this.mesh.scale.x;
     }
 }
