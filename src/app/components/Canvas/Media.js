@@ -4,12 +4,13 @@ import vertex from '../../shaders/plane-vertex.glsl?raw';
 import fragment from '../../shaders/plane-fragment.glsl?raw';
 
 export default class {
-    constructor({ element, geometry, gl, scene, index }) {
+    constructor({ element, geometry, gl, scene, index, sizes }) {
         this.element = element;
         this.geometry = geometry;
         this.gl = gl;
         this.index = index;
         this.scene = scene;
+        this.sizes = sizes;
 
         this.createTexture();
         this.createProgram();
@@ -51,5 +52,33 @@ export default class {
         this.mesh.setParent(this.scene);
 
         this.mesh.position.x += this.index * this.mesh.scale.x;
+    }
+
+    createBounds({ sizes }) {
+        this.bounds = this.element.getBoundingClientRect();
+
+        this.updateScale(sizes);
+        this.updateX();
+        this.updateY();
+        console.log(this.bounds);
+    }
+
+    updateScale({ height, width }) {
+        // window.innerWidth wouldn't do that much performance impact, but if you want optimize further we pass it from parent
+        this.height = this.bounds.height / window.innerHeight;
+        this.width = this.bounds.width / window.innerWidth;
+
+        this.mesh.scale.x = width * this.width;
+        this.mesh.scale.y = height * this.height;
+
+        console.log(this.height, this.width);
+    }
+
+    updateX() {}
+
+    updateY() {}
+
+    onResize(sizes) {
+        this.createBounds(sizes);
     }
 }
