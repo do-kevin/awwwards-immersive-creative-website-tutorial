@@ -71,6 +71,12 @@ export default class {
         this.mesh.scale.x = width * this.width;
         this.mesh.scale.y = height * this.height;
 
+        this.x = this.bounds.left / window.innerWidth;
+        this.y = this.bounds.top / window.innerHeight;
+
+        // Making the images at "(0, 0)" relative to the viewport + using bounds and stuff to have them match the webgl images
+        this.mesh.position.x = -width / 2 + this.mesh.scale.x / 2 + this.x * width;
+        this.mesh.position.y = height / 2 - this.mesh.scale.y / 2 - this.y * height;
         console.log(this.height, this.width);
     }
 
