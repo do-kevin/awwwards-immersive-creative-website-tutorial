@@ -55,6 +55,7 @@ export default class {
     }
 
     createBounds({ sizes }) {
+        this.sizes = sizes;
         this.bounds = this.element.getBoundingClientRect();
 
         this.updateScale(sizes);
@@ -63,28 +64,41 @@ export default class {
         console.log(this.bounds);
     }
 
+    // Events
+
+    onResize(sizes) {
+        this.createBounds(sizes);
+    }
+
+    // Loop
+
     updateScale({ height, width }) {
         // window.innerWidth wouldn't do that much performance impact, but if you want optimize further we pass it from parent
         this.height = this.bounds.height / window.innerHeight;
         this.width = this.bounds.width / window.innerWidth;
 
-        this.mesh.scale.x = width * this.width;
-        this.mesh.scale.y = height * this.height;
-
-        this.x = this.bounds.left / window.innerWidth;
-        this.y = this.bounds.top / window.innerHeight;
-
-        // Making the images at "(0, 0)" relative to the viewport + using bounds and stuff to have them match the webgl images
-        this.mesh.position.x = -width / 2 + this.mesh.scale.x / 2 + this.x * width;
-        this.mesh.position.y = height / 2 - this.mesh.scale.y / 2 - this.y * height;
-        console.log(this.height, this.width);
+        this.mesh.scale.x = this.sizes.width * this.width;
+        this.mesh.scale.y = this.sizes.height * this.height;
     }
 
-    updateX() {}
+    updateX(x = 0) {
+        this.x = (this.bounds.left + x) / window.innerWidth;
 
-    updateY() {}
+        // Making the images at "(0, 0)" relative to the viewport + using bounds and stuff to have them match the webgl images
+        this.mesh.position.x = -this.sizes.width / 2 + this.mesh.scale.x / 2 + this.x * this.sizes.width;
+    }
 
-    onResize(sizes) {
-        this.createBounds(sizes);
+    updateY(y = 0) {
+        this.y = (this.bounds.top + y) / window.innerHeight;
+        this.mesh.position.y = this.sizes.height / 2 - this.mesh.scale.y / 2 - this.y * this.sizes.height;
+    }
+
+    update(scroll) {
+        if (!this.bounds) {
+            return null;
+        }
+
+        this.updateX(scroll.x);
+        this.updateY(scroll.y);
     }
 }
