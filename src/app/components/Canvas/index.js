@@ -83,7 +83,7 @@ export default class Canvas {
     }
 
     onTouchMove(event) {
-        if (this.isDown) {
+        if (!this.isDown) {
             return null;
         }
         const x = event.touches ? event.touches[0].clientX : event.clientX;
