@@ -16,6 +16,7 @@ $base-font-size-mobile: calc($viewport-width / $design-frame-width-mobile * $des
 *:after,
 *:before {
     box-sizing: border-box;
+    user-select: none;
 }
 
 html {

@@ -46,10 +46,12 @@
     "dotenv": "^16.4.5",
     "eleventy-sass": "^2.2.4",
     "events": "^3.3.0",
+    "glslify": "^7.1.1",
     "gsap": "^3.12.5",
     "include-media": "^2.0.0",
     "lodash": "^4.17.21",
     "normalize-wheel": "^1.0.1",
+    "ogl": "^1.0.8",
     "prefix": "^1.0.0",
     "ua-parser-js": "^1.0.38"
   }

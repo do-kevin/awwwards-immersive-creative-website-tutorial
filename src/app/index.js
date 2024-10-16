@@ -1,6 +1,8 @@
 import each from 'lodash/each';
 import Preloader from './components/Preloader';
 
+import Canvas from './components/Canvas';
+
 import About from './pages/About';
 import Collections from './pages/Collections';
 import Detail from './pages/Detail';
@@ -14,6 +16,9 @@ class App {
 
         this.createPreloader();
         this.createNavigation();
+
+        this.createCanvas();
+
         this.createPages();
 
         this.addEventListeners();
@@ -34,6 +39,10 @@ class App {
     createPreloader() {
         this.preloader = new Preloader();
         this.preloader.once('completed', this.onPreloaded.bind(this));
+    }
+
+    createCanvas() {
+        this.canvas = new Canvas();
     }
 
     createContent() {
@@ -106,8 +115,30 @@ class App {
     }
 
     onResize() {
+        if (this.canvas && this.canvas.onResize) {
+            this.canvas.onResize();
+        }
+
         if (this.page && this.page.onResize) {
             this.page.onResize();
+        }
+    }
+
+    onTouchDown(event) {
+        if (this.canvas && this.canvas.onTouchDown) {
+            this.canvas.onTouchDown(event);
+        }
+    }
+
+    onTouchMove(event) {
+        if (this.canvas && this.canvas.onTouchMove) {
+            this.canvas.onTouchMove(event);
+        }
+    }
+
+    onTouchUp(event) {
+        if (this.canvas && this.canvas.onTouchUp) {
+            this.canvas.onTouchUp(event);
         }
     }
 
@@ -115,6 +146,10 @@ class App {
      * Loop.
      */
     update() {
+        if (this.canvas && this.canvas.update) {
+            this.canvas.update();
+        }
+
         // Causes multiple animation frames
         if (this.page && this.page.update) {
             this.page.update();
@@ -127,6 +162,14 @@ class App {
      * Listeners.
      */
     addEventListeners() {
+        window.addEventListener('mousedown', this.onTouchDown.bind(this));
+        window.addEventListener('mousemove', this.onTouchMove.bind(this));
+        window.addEventListener('mouseup', this.onTouchUp.bind(this));
+
+        window.addEventListener('touchstart', this.onTouchDown.bind(this));
+        window.addEventListener('touchmove', this.onTouchMove.bind(this));
+        window.addEventListener('touchend', this.onTouchUp.bind(this));
+
         window.addEventListener('popstate', this.onPopState.bind(this));
 
         window.addEventListener('resize', this.onResize.bind(this));
