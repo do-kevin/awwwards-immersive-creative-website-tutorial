@@ -112,10 +112,18 @@ export default class {
         this.scroll.y = this.y.current;
 
         map(this.medias, (media, index) => {
-            const x = media.mesh.position.x + media.mesh.scale.x / 2;
+            if (this.x.direction === 'left') {
+                const x = media.mesh.position.x + media.mesh.scale.x / 2;
 
-            if (this.x.direction === 'left' && x < -this.sizes.width / 2) {
-                media.extra.x += this.galleryWidth;
+                if (x < -this.sizes.width / 2) {
+                    media.extra.x += this.galleryWidth;
+                }
+            } else if (this.x.direction === 'right') {
+                const x = media.mesh.position.x - media.mesh.scale.x / 2;
+
+                if (x > this.sizes.width / 2) {
+                    media.extra.x -= this.galleryWidth;
+                }
             }
 
             media.update(this.scroll);
