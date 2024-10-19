@@ -10,9 +10,11 @@ import Media from './Media';
 export default class {
     constructor({ gl, scene, sizes }) {
         this.gl = gl;
-        this.group = new Transform();
         this.sizes = sizes;
 
+        this.group = new Transform();
+
+        this.galleryElement = document.querySelector('.home__gallery');
         this.mediasElements = document.querySelectorAll('.home__gallery__media__image');
 
         this.createGeometry();
@@ -48,8 +50,6 @@ export default class {
     }
 
     createGallery() {
-        console.log('medias: ', this.group);
-
         this.medias = map(this.mediasElements, (element, index) => {
             return new Media({
                 element,
@@ -65,7 +65,12 @@ export default class {
     // Events
 
     onResize(event) {
+        // Don't use getBoundingClientRect in a method like update() because it heavily impacts performance
+        this.galleryBounds = this.galleryElement.getBoundingClientRect();
+
         map(this.medias, (media) => media.onResize(event));
+
+        this.sizes = event.sizes;
     }
 
     onTouchDown({ x, y }) {
@@ -77,11 +82,8 @@ export default class {
         const xDistance = x.start - x.end;
         const yDistance = y.start - y.end;
 
-        // BUG: images are moving as the cursor is hovering, not dragging.
         this.x.target = this.scrollCurrent.x - xDistance;
         this.y.target = this.scrollCurrent.y - yDistance;
-
-        console.log('distance: ', xDistance, yDistance);
     }
 
     onTouchUp({ x, y }) {}
@@ -89,13 +91,33 @@ export default class {
     // Update
 
     update() {
+        if (!this.galleryBounds) {
+            return null;
+        }
+
         this.x.current = GSAP.utils.interpolate(this.x.current, this.x.target, this.x.lerp);
         this.y.current = GSAP.utils.interpolate(this.y.current, this.y.target, this.y.lerp);
+
+        if (this.scroll.x < this.x.current) {
+            this.x.direction = 'right';
+        } else if (this.scroll.x > this.x.current) {
+            this.x.direction = 'left';
+        }
+
+        this.galleryWidth = (this.galleryBounds.width / window.innerWidth) * this.sizes.width;
+
+        console.log(this.x.direction);
 
         this.scroll.x = this.x.current;
         this.scroll.y = this.y.current;
 
-        map(this.medias, (media) => {
+        map(this.medias, (media, index) => {
+            const x = media.mesh.position.x + media.mesh.scale.x / 2;
+
+            if (this.x.direction === 'left' && x < -this.sizes.width / 2) {
+                media.extra.x += this.galleryWidth;
+            }
+
             media.update(this.scroll);
         });
     }
