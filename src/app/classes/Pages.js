@@ -1,6 +1,6 @@
 import GSAP from 'gsap';
 import each from 'lodash/each';
-import NormalizeWheel from 'normalize-wheel';
+
 import Prefix from 'prefix';
 import Title from '../animations/Title';
 import map from 'lodash/map';
@@ -23,10 +23,10 @@ export default class Page {
             animationsTitles: '[data-animation="title"]',
             preloaders: '[data-src]',
         };
-        this.id = id;
-        this.transformPrefix = Prefix('transform');
 
-        this.onMouseWheelEvent = this.onMouseWheel.bind(this);
+        this.id = id;
+
+        this.transformPrefix = Prefix('transform');
     }
 
     create() {
@@ -147,11 +147,6 @@ export default class Page {
     }
 
     // events
-    onMouseWheel(event) {
-        const { pixelY } = NormalizeWheel(event);
-
-        this.scroll.target += pixelY;
-    }
 
     onResize() {
         if (this.elements.wrapper) {
@@ -159,6 +154,10 @@ export default class Page {
         }
 
         each(this.animations, (animation) => animation.onResize());
+    }
+
+    onWheel({ pixelY }) {
+        this.scroll.target += pixelY;
     }
 
     // loops
@@ -177,13 +176,9 @@ export default class Page {
     }
 
     // Listeners
-    addEventListeners() {
-        window.addEventListener('wheel', this.onMouseWheelEvent);
-    }
+    addEventListeners() {}
 
-    removeEventListeners() {
-        window.removeEventListener('wheel', this.onMouseWheelEvent);
-    }
+    removeEventListeners() {}
 
     // Destroy
     destroy() {

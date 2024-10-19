@@ -1,4 +1,5 @@
 import { Mesh, Program, Texture } from 'ogl';
+import GSAP from 'gsap';
 
 import vertex from '../../shaders/plane-vertex.glsl?raw';
 import fragment from '../../shaders/plane-fragment.glsl?raw';
@@ -57,6 +58,8 @@ export default class {
         this.mesh.setParent(this.scene);
 
         this.mesh.position.x += this.index * this.mesh.scale.x;
+
+        this.mesh.rotation.z = GSAP.utils.random(-Math.PI * 0.03, Math.PI * 0.03);
     }
 
     createBounds({ sizes }) {

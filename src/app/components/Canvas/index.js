@@ -26,6 +26,7 @@ export default class Canvas {
     createRenderer() {
         this.renderer = new Renderer({
             alpha: true,
+            antialias: true,
         });
 
         this.gl = this.renderer.gl;
@@ -112,6 +113,12 @@ export default class Canvas {
 
         if (this.home) {
             this.home.onTouchUp({ x: this.x, y: this.y });
+        }
+    }
+
+    onWheel(event) {
+        if (this.home) {
+            this.home.onWheel(event);
         }
     }
 
