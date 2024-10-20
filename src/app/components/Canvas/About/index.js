@@ -73,10 +73,8 @@ export default class {
 
     // Update
 
-    update() {
-        console.log('about');
-
-        map(this.galleries, (gallery) => gallery.update());
+    update(scroll) {
+        map(this.galleries, (gallery) => gallery.update(scroll));
     }
 
     // Destroy
