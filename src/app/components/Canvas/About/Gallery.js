@@ -45,6 +45,15 @@ export default class Gallery {
         });
     }
 
+    // Animations
+    show() {
+        map(this.medias, (media) => media.show());
+    }
+
+    hide() {
+        map(this.medias, (media) => media.hide());
+    }
+
     // Events
 
     onResize(event) {
