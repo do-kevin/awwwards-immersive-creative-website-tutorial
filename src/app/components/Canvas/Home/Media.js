@@ -1,8 +1,8 @@
 import { Mesh, Program, Texture } from 'ogl';
 import GSAP from 'gsap';
 
-import vertex from '../../shaders/plane-vertex.glsl?raw';
-import fragment from '../../shaders/plane-fragment.glsl?raw';
+import vertex from '../../../shaders/plane-vertex.glsl?raw';
+import fragment from '../../../shaders/plane-fragment.glsl?raw';
 
 export default class {
     constructor({ element, geometry, gl, scene, index, sizes }) {
@@ -24,7 +24,6 @@ export default class {
     }
 
     createTexture() {
-        console.log('hit');
         this.texture = new Texture(this.gl);
 
         console.log('element: ', this.element);
@@ -42,6 +41,7 @@ export default class {
             fragment,
             vertex,
             uniforms: {
+                uAlpha: { value: 0 },
                 tMap: {
                     value: this.texture,
                 },
@@ -72,6 +72,25 @@ export default class {
         console.log(this.bounds);
     }
 
+    // Animations
+    show() {
+        GSAP.fromTo(
+            this.program.uniforms.uAlpha,
+            {
+                value: 0,
+            },
+            {
+                value: 1,
+            },
+        );
+    }
+
+    hide() {
+        GSAP.to(this.program.uniforms.uAlpha, {
+            value: 0,
+        });
+    }
+
     // Events
 
     onResize(sizes, scroll) {
@@ -82,8 +101,8 @@ export default class {
 
         this.createBounds(sizes);
 
-        this.updateX(scroll ? scroll.x : 0);
-        this.updateY(scroll ? scroll.y : 0);
+        this.updateX(scroll && scroll.x);
+        this.updateY(scroll && scroll.y);
     }
 
     // Loop
