@@ -106,6 +106,15 @@ export default class Gallery {
             }
 
             media.update(this.scroll.current);
+
+            // Gives random number from 0 to 1, closest to the center, the lowest it's going to be.
+            // media.mesh.position.y = Math.cos((media.mesh.position.x / this.width) * Math.PI) * 1 - 1;
         });
+    }
+
+    destroy() {
+        console.log('DESTORUING GALLERY');
+        console.log('this.scene: ', this.scene, this.group);
+        this.scene.removeChild(this.group);
     }
 }

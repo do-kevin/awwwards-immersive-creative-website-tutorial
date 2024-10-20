@@ -23,7 +23,7 @@ export default class Canvas {
 
         this.onResize();
 
-        this.onRouteUpdate(this.template);
+        this.onChange(this.template);
     }
 
     createRenderer() {
@@ -72,6 +72,7 @@ export default class Canvas {
     }
 
     destroyAbout() {
+        console.log('this about: ', this.about);
         if (!this.about) {
             return null;
         }
@@ -81,7 +82,8 @@ export default class Canvas {
 
     // Events
 
-    onRouteUpdate(template) {
+    onChange(template) {
+        console.log('template: ', template);
         if (template === 'home') {
             this.createHome();
         } else {
@@ -90,7 +92,7 @@ export default class Canvas {
 
         if (template === 'about') {
             this.createAbout();
-        } else if (this.about) {
+        } else {
             this.destroyAbout();
         }
     }

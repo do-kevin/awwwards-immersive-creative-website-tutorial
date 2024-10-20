@@ -8,6 +8,7 @@ import Gallery from './Gallery';
 export default class {
     constructor({ gl, scene, sizes }) {
         this.gl = gl;
+        this.scene = scene;
         this.sizes = sizes;
 
         this.group = new Transform();
@@ -65,5 +66,17 @@ export default class {
         console.log('about');
 
         map(this.galleries, (gallery) => gallery.update());
+    }
+
+    // Destroy
+
+    destroy() {
+        console.log('gallery destroy');
+        // map(this.galleries, (gallery) => {
+        //     console.log('gallery: ', gallery);
+        //     gallery.destroy();
+        // });
+
+        this.scene.removeChild(this.group);
     }
 }

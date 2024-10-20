@@ -95,12 +95,12 @@ class App {
 
             this.template = divContent.getAttribute('data-template');
 
-            console.log(this.navigation);
-
             this.navigation.onChange(this.template);
 
             this.content.setAttribute('data-template', this.template);
             this.content.innerHTML = divContent.innerHTML;
+
+            this.canvas.onChange(this.template);
 
             this.page = this.pages[this.template];
             this.page.create();

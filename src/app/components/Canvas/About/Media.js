@@ -26,8 +26,6 @@ export default class {
     createTexture() {
         this.texture = new Texture(this.gl);
 
-        console.log('element: ', this.element);
-
         const image = this.element.querySelector('img');
 
         this.image = new window.Image();
@@ -37,8 +35,6 @@ export default class {
     }
 
     createProgram() {
-        console.log('texture: ', this.texture);
-
         this.program = new Program(this.gl, {
             fragment,
             vertex,
@@ -74,7 +70,6 @@ export default class {
     // Events
 
     onResize(sizes, scroll) {
-        console.log(sizes, scroll);
         this.extra = 0;
 
         this.createBounds(sizes);
