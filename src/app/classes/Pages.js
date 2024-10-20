@@ -96,8 +96,6 @@ export default class Page {
         });
 
         this.animations.push(...this.animationsLabels);
-
-        console.log('test: ', this.animations);
     }
 
     createPreloader() {

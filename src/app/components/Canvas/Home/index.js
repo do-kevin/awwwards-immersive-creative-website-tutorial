@@ -168,4 +168,9 @@ export default class {
             media.update(this.scroll);
         });
     }
+
+    // Destroy
+    destroy() {
+        // this.group.setParent(null);
+    }
 }

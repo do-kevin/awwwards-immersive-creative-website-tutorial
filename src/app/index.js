@@ -30,9 +30,6 @@ class App {
     }
 
     createNavigation() {
-        console.log('created');
-        console.log('test: ', this.template);
-
         this.navigation = new Navigation({
             template: this.template,
         });
@@ -44,7 +41,9 @@ class App {
     }
 
     createCanvas() {
-        this.canvas = new Canvas();
+        this.canvas = new Canvas({
+            template: this.template,
+        });
     }
 
     createContent() {

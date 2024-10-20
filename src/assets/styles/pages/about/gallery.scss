@@ -5,6 +5,7 @@
     margin: 20rem 0;
     overflow: hidden;
     position: relative;
+    pointer-events: none;
 
     &:first-child {
         margin-top: 0;
