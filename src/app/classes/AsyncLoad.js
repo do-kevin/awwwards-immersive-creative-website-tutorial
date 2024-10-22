@@ -15,6 +15,8 @@ export default class AsyncLoad extends Component {
                         this.element.src = this.element.getAttribute('data-src');
                         this.element.onload = (_) => {
                             this.element.classList.add('loaded');
+                            // this.element.style.opacity = '1';
+                            // this.element.style.visibility = 'visible';
                         };
                     }
                 }
